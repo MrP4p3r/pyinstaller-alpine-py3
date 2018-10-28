@@ -1,5 +1,5 @@
 # Official Python base image is needed or some applications will segfault.
-FROM python:3.6-alpine
+FROM python:3.7-alpine
 
 # PyInstaller needs zlib-dev, gcc, libc-dev, and musl-dev
 RUN apk --update --no-cache add \
@@ -15,7 +15,7 @@ RUN apk --update --no-cache add \
 RUN pip install \
     pycrypto
 
-ARG PYINSTALLER_TAG=v3.3
+ARG PYINSTALLER_TAG=v3.4
 
 # Build bootloader for alpine
 RUN git clone --depth 1 --single-branch --branch $PYINSTALLER_TAG https://github.com/pyinstaller/pyinstaller.git /tmp/pyinstaller \
